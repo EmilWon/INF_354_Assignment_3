@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Add User</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click) = "dismissModal()">
+        <ion-icon name="close-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <h1 id="headding">Add A New User</h1> 
+
+  <form [formGroup] = "userForm" (ngSubmit) = "addUser()">
+    <ion-list>
+    
+      <ion-item>
+        <ion-label style="color: lime;">Title</ion-label>
+        <ion-select  cancelText="No" okText="Ok" formControlName = "title">
+          <ion-select-option value="Mr">Mr</ion-select-option>
+          <ion-select-option value="Mrs">Mrs</ion-select-option>
+          <ion-select-option value="Miss">Miss</ion-select-option>
+          <ion-select-option value="Ms">Ms</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+ 
+    <ion-item>
+      <ion-label style="color: lime;">First Name:</ion-label>
+      <ion-input inputmode="text" formControlName = "fname"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label style="color: lime;">Last Name:</ion-label>
+      <ion-input inputmode="text" formControlName = "lname"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label style="color: lime;">Email:</ion-label>
+      <ion-input inputmode="text" formControlName = "email"></ion-input>
+    </ion-item>
+
+    <ion-list>
+      <ion-item>
+        <ion-label style="color: lime;">User Role</ion-label>
+        <ion-select  cancelText="Cancel" okText="Ok" formControlName = "role">
+          <ion-select-option value="Admin">Admin</ion-select-option>
+          <ion-select-option value="User">User</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+
+    <ion-item>
+      <ion-label style="color: lime;">Password:</ion-label>
+      <ion-input inputmode="text" formControlName = "password" type="password"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label style="color: lime;">Confirm Password:</ion-label>
+      <ion-input inputmode="text" formControlName = "confirmpassword" type="password"></ion-input>
+    </ion-item>
+    <ion-item-divider></ion-item-divider>
+    <ion-button expand="block" type = "submit" [disabled] = "!userForm.valid" color="success">Add User</ion-button>
+  </form>
+</ion-content>
